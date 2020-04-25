@@ -1,12 +1,19 @@
 {
   "name": "date-picker",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A simple customizable date picker for Angular",
   "git repository": "https://github.com/hardiksehgal/date-picker.git",
-  "keywords": ["date-picker", "date picker", "datepicker", "date-picker-custom", "custom-date-picker", "angular-date-picker", "angular-datepicker"], 
+  "keywords": [
+    "date-picker",
+    "date picker",
+    "datepicker",
+    "date-picker-custom",
+    "custom-date-picker",
+    "angular-date-picker",
+    "angular-datepicker"
+  ],
   "author": "Hardik Sehgal",
   "license": "MIT",
-  
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -17,7 +24,6 @@
     "build:lib": "ng build custom-date-picker --watch",
     "build:lib-prod": "ng build custom-date-picker --prod"
   },
-  
   "dependencies": {
     "@angular/animations": "~9.1.1",
     "@angular/common": "~9.1.1",
