@@ -1,0 +1,21 @@
+@import './config';
+
+.calendar-box-heading-bar {
+    cursor: pointer;
+    display: flex;
+    & > * {
+        padding: 5px;
+        @include Transition;
+        @include Hover-Active;
+    }
+    &-prev {
+        @include Button;
+    }
+    &-month {
+        flex: 1 1 auto;
+        text-align: center;
+    }
+    &-next {
+        @include Button;
+    }
+}

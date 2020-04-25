@@ -1,0 +1,22 @@
+@import './config';
+
+.calendar-box-days {
+    height: 200px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    &-name {
+        @include FlexBoxConfig;
+        font-size: 12px;
+        font-weight: 100;
+        cursor: default;
+        color: #979797;
+        border-bottom: 0.05px solid #c7c7c7;
+    }
+    &-day {
+        @include IndividualCell;
+
+        &.zero {
+            visibility: hidden !important;
+        }
+    }
+}

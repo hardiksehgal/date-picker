@@ -1,0 +1,55 @@
+<main class='calendar-box' [ngClass]="themeColor">
+    <div class='calendar-box-heading-bar'>
+        <div class="calendar-box-heading-bar-prev" 
+            (click)="monthYearPrev()">
+            < 
+        </div>
+        <div class="calendar-box-heading-bar-month" 
+            (click)="toggleDayMonthYear('month')"
+            *ngIf='showDateBox && showDay'>
+            {{monthDayMap[selectedMonth].month}} - {{selectedYear}}
+        </div>
+        <div class="calendar-box-heading-bar-month" 
+            (click)="toggleDayMonthYear('year')"
+            *ngIf='showMonthBox && showMonth'>
+            {{selectedYear}}
+        </div>
+        <div class="calendar-box-heading-bar-month"
+            *ngIf='showYearBox'>
+            {{years[0]}}-{{years[11]}}
+        </div>
+        <div class="calendar-box-heading-bar-next" 
+            (click)="monthYearNext()">
+            >
+        </div>
+    </div>
+    <div class='calendar-box-days' *ngIf='showDateBox && showDay'>
+        <div class='calendar-box-days-name' 
+            *ngFor="let day of ['S', 'M', 'T', 'W', 'T', 'F', 'S']">
+            {{day}}
+        </div>
+        <div class='calendar-box-days-day' 
+            *ngFor="let day of monthDayMap[selectedMonth].days"
+            (click)='selectDay(day)' 
+            [class.zero]='day === 0' 
+            [class.selected]='highlightCurrentDate(day)'>
+            {{day}}
+        </div>
+    </div>
+    <div class='calendar-box-months-years' *ngIf='showMonthBox && showMonth'>
+        <div class='calendar-box-months-years-month-year' 
+            *ngFor="let month of monthDayMap"
+            (click)='selectMonth(month.month)' 
+            [class.selected]='highlightCurrentMonth(month.month)'>
+            {{month.month.slice(0,3)}}
+        </div>
+    </div>
+    <div class='calendar-box-months-years' *ngIf='showYearBox && showYear'>
+        <div class='calendar-box-months-years-month-year' 
+            *ngFor="let year of years" 
+            (click)='selectYear(year)'
+            [class.selected]='highlightCurrentYear(year)'>
+            {{year}}
+        </div>
+    </div>
+</main>

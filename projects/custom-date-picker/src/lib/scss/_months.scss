@@ -1,0 +1,10 @@
+@import './config';
+
+.calendar-box-months-years {
+    height: 200px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    &-month-year {
+        @include IndividualCell;
+    }
+}

@@ -1,0 +1,59 @@
+@import "./variables";
+@import "./themes";
+
+* {
+    // box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Segoe UI", sans-serif, "Helvetica Neue";
+}
+
+@mixin Button {
+    @include themify($themes) {
+        border: 1.5px solid getThemeColor("buttonColor");
+        color: getThemeColor("buttonColor");
+    }
+    width: 10%;
+    font-weight: 700;
+    font-size: 18px;
+    text-align: center;
+}
+
+@mixin FlexBoxConfig {
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin Transition {
+    transition: all 0.2s ease-in-out;
+}
+
+@mixin Hover-Active {
+    @include themify($themes) {
+        &:hover {
+            background-color: getThemeColor("backgroundColorHover");
+        }
+        &:active {
+            background-color: getThemeColor("backgroundColor");
+            @include Transition;
+        }
+    }
+}
+
+@mixin IndividualCell {
+    @include FlexBoxConfig;
+    @include Hover-Active;
+
+    font-size: 13px;
+
+    @include themify($themes) {
+        &.selected {
+            background-color: getThemeColor("backgroundColor");
+        }
+    }
+}

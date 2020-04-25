@@ -1,0 +1,55 @@
+@import "./variables";
+
+$themes: (
+    default: (
+        buttonColor: darken($grey, 30%),
+        backgroundColor: $grey,
+        backgroundColorHover: lighten($grey, 30%),
+    ),
+    red: (
+        buttonColor: darken($red, 30%),
+        backgroundColor: $red,
+        backgroundColorHover: lighten($red, 30%),
+    ),
+    green: (
+        buttonColor: darken($green, 30%),
+        backgroundColor: $green,
+        backgroundColorHover: lighten($green, 30%),
+    ),
+    yellow: (
+        buttonColor: darken($yellow, 30%),
+        backgroundColor: $yellow,
+        backgroundColorHover: lighten($yellow, 30%),
+    ),
+    blue: (
+        buttonColor: darken($blue, 30%),
+        backgroundColor: $blue,
+        backgroundColorHover: lighten($blue, 30%),
+    ),
+);
+
+@mixin themify($themes) {
+    @each $theme, $map in $themes {
+        @if $theme != "dark" {
+            .theme-#{$theme} & {
+                $theme-map: () !global;
+                @each $key, $submap in $map {
+                    $value: map-get(map-get($themes, $theme), "#{$key}");
+                    $theme-map: map-merge(
+                        $theme-map,
+                        (
+                            $key: $value,
+                        )
+                    ) !global;
+                }
+
+                @content;
+                $theme-map: null !global;
+            }
+        }
+    }
+}
+
+@function getThemeColor($property) {
+    @return map-get($theme-map, $property);
+}

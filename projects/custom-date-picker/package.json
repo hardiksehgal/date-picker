@@ -1,0 +1,15 @@
+{
+  "name": "date-picker",
+  "version": "2.0.0",
+  "description": "A simple customizable date picker for Angular",
+  "git repository": "https://github.com/hardiksehgal/date-picker.git",
+  "keywords": ["date-picker", "date picker", "datepicker", "date-picker-custom", "custom-date-picker", "angular-date-picker", "angular-datepicker"], 
+  "author": "Hardik Sehgal",
+  "license": "MIT",
+  
+  "peerDependencies": {
+    "@angular/common": "^9.1.1",
+    "@angular/core": "^9.1.1",
+    "tslib": "^1.10.0"
+  }
+}
