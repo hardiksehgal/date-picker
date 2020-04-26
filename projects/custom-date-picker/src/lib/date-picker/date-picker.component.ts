@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import {DatePickerService} from '../custom-date-picker.service';
+import { DatePickerService } from '../custom-date-picker.service';
 
 @Component({
   selector: 'date-picker',
@@ -11,8 +11,8 @@ export class DatePickerComponent implements OnInit {
   @Input('showDay') showDay = true;
   @Input('showMonth') showMonth = true;
   @Input('showYear') showYear = true;
-  @Input('themeColor') themeColor = 'default';
-  
+  @Input('theme') themeColor = 'default';
+
   @Output('date') finalDate = new EventEmitter<Date>();
   @Output('day') finalDay = new EventEmitter<number>();
   @Output('month') finalMonth = new EventEmitter<number>();
@@ -33,7 +33,7 @@ export class DatePickerComponent implements OnInit {
   checkYear: number
 
   years: Array<number>;
-  monthDayMap: Array<{numberOfDays: number, month: string, days: Array<number>}>;
+  monthDayMap: Array<{ numberOfDays: number, month: string, days: Array<number> }>;
 
   constructor(private datePickerService: DatePickerService) { }
 
@@ -45,7 +45,7 @@ export class DatePickerComponent implements OnInit {
     this.years = Array(12).fill(this.selectedYear).map((val, ind) => { val += ind; return val });
     this.monthDayMap = this.datePickerService.getMap();
     this.themeColor = `theme-${this.themeColor}`;
-    
+
     if (this.showYear) {
       this.toggleDayMonthYear('year');
     }
@@ -100,7 +100,7 @@ export class DatePickerComponent implements OnInit {
     this.checkYear = this.selectedYear;
     this.emitOutput();
   }
-  
+
   selectMonth(month: string): void {
     this.selectedMonth = this.checkMonth = this.datePickerService.nameToMonth(month);
     this.checkYear = this.selectedYear;

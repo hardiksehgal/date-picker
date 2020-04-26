@@ -9,4 +9,4 @@ import { BrowserModule } from '@angular/platform-browser';
   ],
   exports: [DatePickerComponent]
 })
-export class CustomDatePickerModule { }
+export class DatePickerModule { }
