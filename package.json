@@ -1,6 +1,6 @@
 {
   "name": "date-picker",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A simple customizable date picker for Angular",
   "git repository": "https://github.com/hardiksehgal/date-picker.git",
   "keywords": [
