@@ -9,7 +9,7 @@ Install the package from npm with the help of following command:
 npm install date-picker-custom --save
 ```
 
-Import **DatePickerModule** in **app.module.ts* 
+Import **DatePickerModule** in *app.module.ts* 
 
 ```javascript
 import {{ DatePickerModule }} from 'date-picker-custom';
