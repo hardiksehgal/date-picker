@@ -1,27 +1,92 @@
-# CustomDatePicker
+# Custom Date Picker
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
+This is a custom date picker for Angular Applications.
 
-## Development server
+## Installation
+Install the package from npm with the help of following command:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+```Bash
+npm install date-picker-custom --save
+```
 
-## Code scaffolding
+Import **DatePickerModule** in **app.module.ts* 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```javascript
+import {{ DatePickerModule }} from 'date-picker-custom';
+```
 
-## Build
+Add **DatePickerModule** to your module imports in *app.module.ts*
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```javascript
+@NgModule({
+  ...
+  imports: [
+    ...
+    DatePickerModule,
+    ...
+  ]
+  ...
+})
+```
+## Options
+All the available input options are listed below: 
 
-## Running unit tests
+#### Input Attributes:
+| Name      | Type    | Values                                 |Default | Description                                                  |
+|-----------|---------|----------------------------------------|--------|--------------------------------------------------------------|
+| theme     | string  | 'red' \| 'yellow' \| 'blue' \| 'green' | ""     | This will change the current color scheme of the date picker |
+| showDay   | boolean | true \| false                          | true   | Set to false if you don't want the date in the date picker   |
+| showMonth | boolean | true \| false                          | true   | Set to false if you don't want the month in the date picker  |
+| showYear  | boolean | true \| false                          | true   | Set to false if you don't want the year in the date picker   |
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+All the available output attributes are listed below: 
 
-## Running end-to-end tests
+### Output Attributes: 
+| Name       | Output Type | Description                                                  |
+|------------|-------------|--------------------------------------------------------------|
+| date       | Date        | Emits the full selected date. If any of the *__showDate__*, *__showMonth__* or *__showYear__* input is set to false, then **undefined** is returned |
+| day        | number      | Emits the selected day of the month. If *__showDate__* input is set to false, **undefined** is returned |
+| month      | number      | Emits the selected month number. The returned result is zero indexed, i.e, *January is 0, February is 1,* and so on. If *__showMonth__* input is set to false, **undefined** is returned |
+| month_name | string      | Emits the selected month name. If *__showMonth__* input is set to false, **undefined** is returned |
+| year       | number      | Emits the selected year in YYYY format. If *__showYear__* input is set to false, **undefined** is returned|
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Usage
+To use the date picker in your component, you have to add the **date-picker** HTML tag in your code like below:
 
-## Further help
+```html
+<date-picker
+    theme='red'
+    [showDay]='false'
+    [showMonth]='true'
+    [showYear]='true'
+    (date)='getDate($event)'
+    (day)='getDay($event)'
+    (month)='getMonth($event)'
+    (month_name)='getMonthName($event)'
+    (year)='getYear($event)'> </date-picker>
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+In your **component.ts** file: 
+
+```javascript
+getDate(date: Date): void {
+    ...
+}
+
+getDay(day: number): void {
+    ...
+}
+
+getMonth(month: number): void {
+    ...
+}
+  
+getMonthName(monthName: string): void {
+    ...
+}
+
+getYear(year: number): void {
+    ...
+}
+```
+
