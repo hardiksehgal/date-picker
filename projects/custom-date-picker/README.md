@@ -63,7 +63,8 @@ To use the date picker in your component, you have to add the **date-picker** HT
     (day)='getDay($event)'
     (month)='getMonth($event)'
     (month_name)='getMonthName($event)'
-    (year)='getYear($event)'> </date-picker>
+    (year)='getYear($event)'> 
+</date-picker>
 ```
 
 In your **component.ts** file: 
